@@ -218,23 +218,150 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R74.0K</div>
-    <div class="hdr-meta">Week ending 1 May 2026 &middot; Generated 06 May 2026 12:43</div>
+    <div class="hdr-meta">Week ending 1 May 2026 &middot; Generated 06 May 2026 20:39</div>
   </div>
 </div>
 
 <!-- ── TAB NAV ── -->
 <div class="tab-nav">
-  <button class="tab-btn active" data-tab="sales"    onclick="showTab('sales')">Sales</button>
-  <button class="tab-btn"        data-tab="pricing"  onclick="showTab('pricing')">Pricing</button>
-  <button class="tab-btn"        data-tab="activity" onclick="showTab('activity')">Activity</button>
-  <button class="tab-btn"        data-tab="debtors"  onclick="showTab('debtors')">Debtors</button>
-  <button class="tab-btn"        data-tab="accounts" onclick="showTab('accounts')">Accounts</button>
+  <button class="tab-btn active" data-tab="overview"  onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn"        data-tab="sales"     onclick="showTab('sales')">Sales</button>
+  <button class="tab-btn"        data-tab="pricing"   onclick="showTab('pricing')">Pricing</button>
+  <button class="tab-btn"        data-tab="activity"  onclick="showTab('activity')">Activity</button>
+  <button class="tab-btn"        data-tab="debtors"   onclick="showTab('debtors')">Debtors</button>
+  <button class="tab-btn"        data-tab="accounts"  onclick="showTab('accounts')">Accounts</button>
 </div>
 
 <div class="page-main">
 
+<!-- ── OVERVIEW TAB ── -->
+<div id="panel-overview" class="tab-panel active">
+  <div class="sec-h">Performance Summary &mdash; FY2026 YTD</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">FY2026 YTD Revenue</div>
+      <div class="kpi-value">R74.0K</div>
+      <div class="kpi-delta neu">FY2025 same period: R0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">30% Growth Target (YTD)</div>
+      <div class="kpi-value">—</div>
+      <div class="kpi-delta neu">Gap: No target set</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">YOY Growth &mdash; KPI A</div>
+      <div class="kpi-value neu">—</div>
+      <div class="kpi-delta neu"><span class="pill neu">— — YoY</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Lines Above Rock Bottom</div>
+      <div class="kpi-value up">91.7%</div>
+      <div class="kpi-delta neu">66 of 72 lines</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Debtors Total</div>
+      <div class="kpi-value">R21.1K</div>
+      <div class="kpi-delta warn">2 accounts</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Overdue &gt;60 Days</div>
+      <div class="kpi-value dn">4.7%</div>
+      <div class="kpi-delta dn">R983 at collections risk</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Monthly Revenue &mdash; FY2025 vs FY2026</div>
+      <div class="card-sub">Full FY2025 (Mar&ndash;Feb) alongside FY2026 to date (Mar onward)</div>
+      <div class="chart-wrap h280"><canvas id="cOvRev"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Revenue by Category &mdash; FY2026 YTD</div>
+      <div class="card-sub">Top 8 product categories by revenue</div>
+      <div class="chart-wrap h280"><canvas id="cOvCat"></canvas></div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:18px">
+    <div class="card">
+      <div class="card-title">Top 5 Accounts &mdash; YTD Revenue</div>
+      <div class="card-sub">Highest-revenue accounts in FY2026</div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Account</th><th style="text-align:right">Revenue</th></tr></thead>
+          <tbody><tr><td>Build Africa Hardware</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td>Projo Projects</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R13.6K</td></tr><tr><td>Allandale Trading CC</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td>241 Fairview</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td>Olive Urban</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R477</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Debtors Breakdown</div>
+      <div class="card-sub">Collections position &mdash; 2 accounts</div>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--color-surface-sunken);border-radius:var(--r-md)">
+          <span style="font-size:12px;color:var(--color-text-secondary)">Current (within terms)</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--color-success-fg)">R0</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--color-surface-sunken);border-radius:var(--r-md)">
+          <span style="font-size:12px;color:var(--color-text-secondary)">30 Days</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--color-warning-fg)">R20.1K</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--color-surface-sunken);border-radius:var(--r-md)">
+          <span style="font-size:12px;color:var(--color-text-secondary)">Over 60 Days</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--color-danger-fg)">R983 (4.7%)</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--color-surface-elevated);border-radius:var(--r-md);border:1px solid var(--color-border-default)">
+          <span style="font-size:12px;font-weight:600;color:var(--color-text-primary)">Total Outstanding</span>
+          <span style="font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--color-text-primary)">R21.1K</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:18px">
+    <div class="card">
+      <div class="card-title">Products Most Often Below Rock Bottom</div>
+      <div class="card-sub">Top 5 by frequency of below-RB transactions in FY2026 YTD</div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Product</th><th style="text-align:right">Avg vs RB</th></tr></thead>
+          <tbody><tr><td style="font-size:12px">5L DECOR CREAM PVA</td><td style="text-align:right"><span class="pill red">-1.7%</span></td></tr><tr><td style="font-size:12px">1L UNIV UNDERCOAT WHITE</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td style="font-size:12px">1L Q D RED OXIDE PRIMER</td><td style="text-align:right"><span class="pill red">-8.2%</span></td></tr><tr><td style="font-size:12px">5L Q D RED OXIDE PRIMER</td><td style="text-align:right"><span class="pill red">-1.8%</span></td></tr><tr><td style="font-size:12px">1L ROAD MARKING YELLOW</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">KPI Scorecard Status</div>
+      <div class="card-sub">Sales Rep KPI Agreement 2025 &mdash; 5 categories</div>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;font-family:var(--font-body);font-size:13px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--color-success-bg);border:1px solid var(--color-success-bd);border-radius:var(--r-md)">
+          <span><strong>A &mdash; Sales Growth (50%)</strong></span>
+          <span class="pill grn">— — YoY</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--color-neutral-bg);border:1px solid var(--color-neutral-bd);border-radius:var(--r-md)">
+          <span style="color:var(--color-text-secondary)">B &mdash; CRM Dev (20%)</span>
+          <span class="pill neu">No data</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--color-neutral-bg);border:1px solid var(--color-neutral-bd);border-radius:var(--r-md)">
+          <span style="color:var(--color-text-secondary)">C &mdash; Product Dev (10%)</span>
+          <span class="pill neu">No data</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--color-neutral-bg);border:1px solid var(--color-neutral-bd);border-radius:var(--r-md)">
+          <span style="color:var(--color-text-secondary)">D &mdash; New Customers (10%)</span>
+          <span class="pill neu">No data</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--color-neutral-bg);border:1px solid var(--color-neutral-bd);border-radius:var(--r-md)">
+          <span style="color:var(--color-text-secondary)">E &mdash; Training (10%)</span>
+          <span class="pill neu">No data</span>
+        </div>
+        <p style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px">Scoreable weight this period: 50% of 100%</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <!-- ── SALES TAB ── -->
-<div id="panel-sales" class="tab-panel active">
+<div id="panel-sales" class="tab-panel">
   <div class="sec-h">Revenue Performance &mdash; FY2026</div>
   <div class="kpi-grid">
     <div class="kpi">
@@ -404,7 +531,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 1 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 06 May 2026 12:43 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 06 May 2026 20:39 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -491,6 +618,42 @@ Chart.register({
         });
       });
     }catch(e){}
+  }
+});
+
+/* ── OVERVIEW REVENUE CHART ── */
+_lblMap.set('cOvRev',{mode:'v-stacked',fmt:v=>fmtR(v),fs:9,dsColors:['#fff','#0D0D0B']});
+new Chart(document.getElementById('cOvRev'),{
+  type:'bar',
+  data:{
+    labels:["Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26"],
+    datasets:[
+      {label:'FY2025',data:[0,0,0,1193.21,4418.42,146393.66,8505.83,32364.79,11971.29,1477.39,2219.7,4281.33],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
+      {label:'FY2026',data:[50074.4,23949.07,0,0,0,0,0,0,0,0,0,0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:22}},
+    plugins:{legend:{position:'bottom',labels:{padding:16,boxWidth:12}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtR(c.parsed.y)}}},
+    scales:{y:{grid:gridLine,ticks:{callback:v=>fmtR(v)}},x:{grid:{display:false}}}
+  }
+});
+
+/* ── OVERVIEW CATEGORY CHART ── */
+_lblMap.set('cOvCat',{mode:'h-inside',fmt:v=>'R'+v.toFixed(2)+'M',fs:9,color:'#0D0D0B'});
+new Chart(document.getElementById('cOvCat'),{
+  type:'bar',
+  data:{
+    labels:["Primers","PVA Paints","Enamel","Woodcare","QD Enamel","Spec. Coatings","Waterproofing","Accessories"],
+    datasets:[{label:'Revenue (R million)',data:[0.02,0.01,0.01,0.01,0.01,0.01,0.0,0.0],backgroundColor:'#F5C400',borderRadius:5}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>'R'+(c.parsed.x).toFixed(2)+'M'}}},
+    scales:{x:{grid:gridLine,ticks:{callback:v=>'R'+v.toFixed(1)+'M'}},y:{grid:{display:false},ticks:{font:{size:10}}}}
   }
 });
 
