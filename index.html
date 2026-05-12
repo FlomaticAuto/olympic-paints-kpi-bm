@@ -171,7 +171,13 @@
 .hm-pill:hover{border-color:var(--color-brand-primary);color:var(--color-text-primary)}
 .hm-pill.active{background:var(--color-brand-primary);color:var(--color-text-on-brand);border-color:var(--color-brand-primary)}
 .hm-wrap{overflow-x:auto;padding-bottom:6px;margin-top:4px}
-.hm-row{display:flex;gap:4px;min-width:max-content}
+.hm-row{display:flex;gap:10px;min-width:max-content;align-items:stretch}
+.hm-wk{display:flex;gap:4px;padding:5px;border-radius:10px;border:1px solid var(--color-border-subtle);
+  background:transparent;transition:border-color .15s,box-shadow .15s}
+.hm-wk.wk-a .hm-cell.empty{background:rgba(255,255,255,0.04)}
+.hm-wk.wk-b .hm-cell.empty{background:rgba(245,196,0,0.06)}
+.hm-wk.wk-current{border:2px solid var(--color-brand-primary);padding:4px;
+  box-shadow:0 0 0 3px rgba(245,196,0,0.12)}
 .hm-cell{width:46px;min-width:46px;border-radius:6px;padding:7px 4px 6px;text-align:center;cursor:default;
   transition:transform .1s}
 .hm-cell:hover{transform:scale(1.08)}
@@ -261,8 +267,8 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
     </div>
   </div>
   <div class="hdr-r">
-    <div class="hdr-ytd">R59.9K</div>
-    <div class="hdr-meta">Week ending 12 May 2026 &middot; Generated 12 May 2026 07:17</div>
+    <div class="hdr-ytd">R74.0K</div>
+    <div class="hdr-meta">Week ending 12 May 2026 &middot; Generated 12 May 2026 08:10</div>
   </div>
 </div>
 
@@ -288,23 +294,23 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
   <div class="kpi-grid">
     <div class="kpi">
       <div class="kpi-label">FY2026 YTD Revenue</div>
-      <div class="kpi-value">R59.9K</div>
+      <div class="kpi-value">R74.0K</div>
       <div class="kpi-delta neu">FY2025 same period: R0</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">30% Growth Target (YTD)</div>
-      <div class="kpi-value">R0</div>
-      <div class="kpi-delta up">+R59.9K ahead</div>
+      <div class="kpi-value">—</div>
+      <div class="kpi-delta neu">Gap: No target set</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">YOY Growth &mdash; KPI A</div>
-      <div class="kpi-value warn">—</div>
-      <div class="kpi-delta warn"><span class="pill amb">⚠ — YoY</span></div>
+      <div class="kpi-value neu">—</div>
+      <div class="kpi-delta neu"><span class="pill neu">— — YoY</span></div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Lines Above Rock Bottom</div>
-      <div class="kpi-value up">91.5%</div>
-      <div class="kpi-delta neu">65 of 71 lines</div>
+      <div class="kpi-value up">91.7%</div>
+      <div class="kpi-delta neu">66 of 72 lines</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Debtors Total</div>
@@ -338,7 +344,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
       <div class="tw">
         <table>
           <thead><tr><th>Account</th><th style="text-align:right">Revenue</th></tr></thead>
-          <tbody><tr><td>Build Africa Hardware</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td>Allandale Trading CC</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td>241 Fairview</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td>Pepper Tree Lane Body Corporat</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189</td></tr></tbody>
+          <tbody><tr><td>Build Africa Hardware</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td>Projo Projects</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R13.6K</td></tr><tr><td>Allandale Trading CC</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td>241 Fairview</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td>Olive Urban</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R477</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -372,7 +378,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
     <div class="tw">
       <table>
         <thead><tr><th>Product</th><th style="text-align:right">Avg vs RB</th></tr></thead>
-        <tbody><tr><td style="font-size:12px">1L Q D RED OXIDE PRIMER</td><td style="text-align:right"><span class="pill red">-8.2%</span></td></tr><tr><td style="font-size:12px">1L ROAD MARKING YELLOW</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td style="font-size:12px">1L UNIV UNDERCOAT WHITE</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td style="font-size:12px">200mm x 10m Membrane</td><td style="text-align:right"><span class="pill red">-100.0%</span></td></tr><tr><td style="font-size:12px">5L DECOR CREAM PVA</td><td style="text-align:right"><span class="pill red">-1.7%</span></td></tr></tbody>
+        <tbody><tr><td style="font-size:12px">5L DECOR CREAM PVA</td><td style="text-align:right"><span class="pill red">-1.7%</span></td></tr><tr><td style="font-size:12px">1L UNIV UNDERCOAT WHITE</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td style="font-size:12px">1L Q D RED OXIDE PRIMER</td><td style="text-align:right"><span class="pill red">-8.2%</span></td></tr><tr><td style="font-size:12px">5L Q D RED OXIDE PRIMER</td><td style="text-align:right"><span class="pill red">-1.8%</span></td></tr><tr><td style="font-size:12px">1L ROAD MARKING YELLOW</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr></tbody>
       </table>
     </div>
   </div>
@@ -493,23 +499,23 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
   <div class="kpi-grid">
     <div class="kpi">
       <div class="kpi-label">FY2026 YTD Revenue</div>
-      <div class="kpi-value">R59.9K</div>
+      <div class="kpi-value">R74.0K</div>
       <div class="kpi-delta neu">vs FY2025 same period: R0</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">FY2025 Full Year</div>
-      <div class="kpi-value">R41.3K</div>
+      <div class="kpi-value">R212.8K</div>
       <div class="kpi-delta neu">FY2024: R1.0K</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">YoY Growth &mdash; KPI A</div>
-      <div class="kpi-value warn">—</div>
-      <div class="kpi-delta warn"><span class="pill amb">⚠ — YoY</span></div>
+      <div class="kpi-value neu">—</div>
+      <div class="kpi-delta neu"><span class="pill neu">— — YoY</span></div>
     </div>
     <div class="kpi">
       <div class="kpi-label">30% Growth Target (YTD)</div>
-      <div class="kpi-value">R0</div>
-      <div class="kpi-delta up">+R59.9K ahead</div>
+      <div class="kpi-value">—</div>
+      <div class="kpi-delta neu">Gap: No target set</div>
     </div>
   </div>
   <div class="card">
@@ -525,12 +531,12 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
   <div class="kpi-grid">
     <div class="kpi">
       <div class="kpi-label">Lines Above Rock Bottom</div>
-      <div class="kpi-value up">91.5%</div>
-      <div class="kpi-delta neu">65 of 71 lines</div>
+      <div class="kpi-value up">91.7%</div>
+      <div class="kpi-delta neu">66 of 72 lines</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Avg Price vs Rock Bottom</div>
-      <div class="kpi-value up">+14.7%</div>
+      <div class="kpi-value up">+17.2%</div>
       <div class="kpi-delta neu">Average margin above RB</div>
     </div>
     <div class="kpi">
@@ -554,7 +560,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
           <th style="text-align:right">Lines Below RB</th>
           <th style="text-align:right">Avg % vs RB</th>
         </tr></thead>
-        <tbody><tr><td>1L Q D RED OXIDE PRIMER</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-8.2%</span></td></tr><tr><td>1L ROAD MARKING YELLOW</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td>1L UNIV UNDERCOAT WHITE</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td>200mm x 10m Membrane</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-100.0%</span></td></tr><tr><td>5L DECOR CREAM PVA</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-1.7%</span></td></tr><tr><td>5L Q D RED OXIDE PRIMER</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-1.8%</span></td></tr></tbody>
+        <tbody><tr><td>5L DECOR CREAM PVA</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-1.7%</span></td></tr><tr><td>1L UNIV UNDERCOAT WHITE</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr><tr><td>1L Q D RED OXIDE PRIMER</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-8.2%</span></td></tr><tr><td>5L Q D RED OXIDE PRIMER</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-1.8%</span></td></tr><tr><td>1L ROAD MARKING YELLOW</td><td style="text-align:right">1</td><td style="text-align:right"><span class="pill red">-0.0%</span></td></tr></tbody>
       </table>
     </div>
   </div>
@@ -571,7 +577,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
     </div>
     <div class="kpi">
       <div class="kpi-label">Leads in Pipeline</div>
-      <div class="kpi-value">68</div>
+      <div class="kpi-value">67</div>
       <div class="kpi-delta neu">Open leads — Zoho CRM</div>
     </div>
   </div>
@@ -645,7 +651,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
           <thead><tr>
             <th>Account</th><th>Area</th><th style="text-align:right">Revenue</th>
           </tr></thead>
-          <tbody><tr><td>Build Africa Hardware</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td>Allandale Trading CC</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td>241 Fairview</td><td style="color:var(--color-text-tertiary);font-size:11px">Z1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td>Pepper Tree Lane Body Corporat</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189</td></tr></tbody>
+          <tbody><tr><td>Build Africa Hardware</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td>Projo Projects</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R13.6K</td></tr><tr><td>Allandale Trading CC</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td>241 Fairview</td><td style="color:var(--color-text-tertiary);font-size:11px">Z1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td>Olive Urban</td><td style="color:var(--color-text-tertiary);font-size:11px">BM</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R477</td></tr><tr><td>Pepper Tree Lane Body Corporate</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -764,7 +770,7 @@ tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 12 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 12 May 2026 07:17 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 12 May 2026 08:10 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -861,8 +867,8 @@ new Chart(document.getElementById('cOvRev'),{
   data:{
     labels:["Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26"],
     datasets:[
-      {label:'FY2025',data:[0.0,0.0,0.0,1193.21,1583.09,22318.34,8505.83,7364.79,0.0,0.0,310.14,0.0],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
-      {label:'FY2026',data:[40732.76,19173.16,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
+      {label:'FY2025',data:[0,0,0,1193.21,4418.42,146393.66,8505.83,32364.79,11971.29,1477.39,2219.7,4281.33],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
+      {label:'FY2026',data:[50074.4,23949.07,0,0,0,0,0,0,0,0,0,0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
     ]
   },
   options:{
@@ -879,7 +885,7 @@ _lblMap.set('cOvCat',{mode:'h-inside',fmt:v=>'R'+v.toFixed(2)+'M',fs:9,color:'#0
 new Chart(document.getElementById('cOvCat'),{
   type:'bar',
   data:{
-    labels:["Primers","PVA Paints","Enamel","Woodcare","QD Enamel","Specialised Coatings","Waterproofing","Accessories"],
+    labels:["Primers","PVA Paints","Enamel","Woodcare","QD Enamel","Spec. Coatings","Waterproofing","Accessories"],
     datasets:[{label:'Revenue (R million)',data:[0.02,0.01,0.01,0.01,0.01,0.01,0.0,0.0],backgroundColor:'#F5C400',borderRadius:5}]
   },
   options:{
@@ -897,8 +903,8 @@ new Chart(document.getElementById('cSalesRev'),{
   data:{
     labels:["Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26"],
     datasets:[
-      {label:'FY2025',data:[0.0,0.0,0.0,1193.21,1583.09,22318.34,8505.83,7364.79,0.0,0.0,310.14,0.0],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
-      {label:'FY2026',data:[40732.76,19173.16,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
+      {label:'FY2025',data:[0,0,0,1193.21,4418.42,146393.66,8505.83,32364.79,11971.29,1477.39,2219.7,4281.33],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
+      {label:'FY2026',data:[50074.4,23949.07,0,0,0,0,0,0,0,0,0,0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
     ]
   },
   options:{
@@ -929,24 +935,52 @@ new Chart(document.getElementById('cSalesRev'),{
   function hmFg(n){return n>=10?'#0D0D0B':'var(--color-text-secondary)';}
   function hmCntFg(n){return n>=10?'#0D2040':(n>0?'var(--color-text-primary)':'rgba(255,255,255,0.15)');}
   function pad2(v){return String(v).padStart(2,'0');}
+  function isoWk(d){
+    var dt=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
+    var dn=dt.getUTCDay()||7;
+    dt.setUTCDate(dt.getUTCDate()+4-dn);
+    var ys=new Date(Date.UTC(dt.getUTCFullYear(),0,1));
+    return {y:dt.getUTCFullYear(),w:Math.ceil(((dt-ys)/86400000+1)/7)};
+  }
 
   function renderHm(ym){
     var parts=ym.split('-');
     var yr=+parts[0],mo=+parts[1];
     var dim=new Date(yr,mo,0).getDate();
-    var html='';
+    var today=new Date();
+    var tWk=isoWk(today);
+
+    // Bucket weekdays by ISO week so each week renders as one bordered block
+    var weeks=[];var wkMap={};
     for(var d=1;d<=dim;d++){
       var dt=new Date(yr,mo-1,d);
       var dow=dt.getDay();
       if(dow<1||dow>5)continue;
-      var iso=yr+'-'+pad2(mo)+'-'+pad2(d);
-      var n=DV[iso]||0;
-      var bg=hmBg(n);var fg=hmFg(n);var cf=hmCntFg(n);
-      html+='<div class="hm-cell" style="background:'+bg+'" title="'+iso+': '+n+' visit'+(n!==1?'s':'')+'">'
-           +'<div class="hm-date" style="color:'+fg+'">'+DNAMES[dow]+' '+pad2(d)+'</div>'
-           +'<div class="hm-count" style="color:'+cf+'">'+(n||'')+'</div>'
-           +'</div>';
+      var wk=isoWk(dt);var key=wk.y+'-W'+wk.w;
+      if(!(key in wkMap)){wkMap[key]=weeks.length;weeks.push({key:key,y:wk.y,w:wk.w,days:[]});}
+      weeks[wkMap[key]].days.push({d:d,dow:dow});
     }
+
+    var html='';
+    weeks.forEach(function(week,wkIdx){
+      var bandCls=wkIdx%2===0?'wk-a':'wk-b';
+      var isCurrent=(week.y===tWk.y && week.w===tWk.w);
+      var cls='hm-wk '+bandCls+(isCurrent?' wk-current':'');
+      html+='<div class="'+cls+'" title="Week '+week.w+', '+week.y+'">';
+      week.days.forEach(function(o){
+        var iso=yr+'-'+pad2(mo)+'-'+pad2(o.d);
+        var n=DV[iso]||0;
+        var fg=hmFg(n);var cf=hmCntFg(n);
+        // For empty cells, leave bg to the .wk-a/.wk-b class; for filled cells, inline the visit color
+        var inline=n===0?'':'background:'+hmBg(n);
+        html+='<div class="hm-cell'+(n===0?' empty':'')+'" style="'+inline+'" title="'+iso+': '+n+' visit'+(n!==1?'s':'')+'">'
+             +'<div class="hm-date" style="color:'+fg+'">'+DNAMES[o.dow]+' '+pad2(o.d)+'</div>'
+             +'<div class="hm-count" style="color:'+cf+'">'+(n||'')+'</div>'
+             +'</div>';
+      });
+      html+='</div>';
+    });
+
     document.getElementById('hm-grid').innerHTML=html||
       '<span style="font-size:12px;color:var(--color-text-tertiary);font-family:var(--font-body);padding:8px">No visit data for this month</span>';
     document.querySelectorAll('.hm-pill').forEach(function(p){p.classList.toggle('active',p.dataset.ym===ym);});
@@ -990,7 +1024,7 @@ _lblMap.set('cAccCat',{mode:'h-inside',fmt:v=>'R'+v.toFixed(2)+'M',fs:9,color:'#
 new Chart(document.getElementById('cAccCat'),{
   type:'bar',
   data:{
-    labels:["Primers","PVA Paints","Enamel","Woodcare","QD Enamel","Specialised Coatings","Waterproofing","Accessories"],
+    labels:["Primers","PVA Paints","Enamel","Woodcare","QD Enamel","Spec. Coatings","Waterproofing","Accessories"],
     datasets:[{label:'Revenue (R million)',data:[0.02,0.01,0.01,0.01,0.01,0.01,0.0,0.0],backgroundColor:'#F5C400',borderRadius:5}]
   },
   options:{
