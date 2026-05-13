@@ -197,6 +197,23 @@ thead th[style*="right"]{text-align:right}
 tbody tr{border-bottom:1px solid var(--color-border-subtle);transition:background .12s}
 tbody tr:hover{background:var(--color-surface-overlay)}
 tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
+/* ── ACCOUNTS TAB FILTER PILLS (matches Sales Dashboard credits tab) ─── */
+.acct-filter-block{display:flex;flex-direction:column;gap:8px;margin:0 0 18px}
+.acct-filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.acct-filter-label{font-family:var(--font-display);font-weight:800;font-size:11px;
+  text-transform:uppercase;letter-spacing:.10em;color:var(--color-text-secondary);
+  min-width:54px;flex-shrink:0}
+.acct-pill-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex:1}
+.acct-pill{padding:6px 14px;border-radius:6px;border:1px solid var(--color-border-default);
+  background:var(--color-surface-elevated);color:var(--color-text-primary);
+  font-family:var(--font-display);font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all .15s}
+.acct-pill:hover{border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
+.acct-pill.active{background:var(--color-brand-primary);color:#0D0D0B;border-color:var(--color-brand-primary)}
+.acct-pill-mo{border-style:dashed;color:var(--color-text-secondary)}
+.acct-pill-mo.active{border-style:solid}
+.acct-pill-sep{display:inline-block;width:1px;height:24px;
+  background:var(--color-border-default);margin:0 4px;align-self:center}
 /* ── STATUS PILLS ────────────────────────────────────────── */
 .pill{display:inline-block;padding:3px 10px;border-radius:var(--r-pill);
   font-family:var(--font-body);font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
@@ -343,7 +360,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R59.9K</div>
-    <div class="hdr-meta">Week ending 13 May 2026 &middot; Generated 13 May 2026 10:31</div>
+    <div class="hdr-meta">Week ending 13 May 2026 &middot; Generated 13 May 2026 10:41</div>
   </div>
 </div>
 
@@ -733,36 +750,17 @@ html,body{overflow-x:hidden}
 <div id="panel-accounts" class="tab-panel">
   <div class="sec-h">Top Accounts &amp; Product Mix</div>
 
-  <!-- Filter bar -->
-  <div class="card" style="margin-bottom:18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;
-       padding:14px 18px">
-    <div style="font-family:var(--font-display);font-weight:700;text-transform:uppercase;
-         letter-spacing:0.12em;font-size:11px;color:var(--color-text-secondary)">Filter</div>
-    <label style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-body);font-size:11px;
-           color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em">
-      Fiscal Year
-      <select id="acctFy" onchange="renderAccountsTab()" style="padding:6px 10px;border-radius:var(--r-sm);
-              border:1px solid var(--color-border-default);background:var(--color-surface-elevated);
-              color:var(--color-text-primary);font-family:var(--font-body);font-size:13px;min-width:120px"></select>
-    </label>
-    <label style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-body);font-size:11px;
-           color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em">
-      Month
-      <select id="acctMonth" onchange="renderAccountsTab()" style="padding:6px 10px;border-radius:var(--r-sm);
-              border:1px solid var(--color-border-default);background:var(--color-surface-elevated);
-              color:var(--color-text-primary);font-family:var(--font-body);font-size:13px;min-width:140px"></select>
-    </label>
-    <button onclick="document.getElementById('acctFy').value='2026';document.getElementById('acctMonth').value='all';renderAccountsTab();"
-            style="margin-left:auto;padding:8px 14px;border-radius:var(--r-sm);
-            border:1px solid var(--color-border-default);background:var(--color-surface-overlay);
-            color:var(--color-text-primary);font-family:var(--font-body);font-size:12px;cursor:pointer">
-      Reset
-    </button>
+  <!-- Filter bar — pill rows matching Sales Dashboard Credits tab style -->
+  <div class="acct-filter-block">
+    <div class="acct-filter-row">
+      <span class="acct-filter-label">Period</span>
+      <div class="acct-pill-row"><button class="acct-pill acct-pill-period active" data-period="all" onclick="setAcctPeriod('all',this)">All Time</button><button class="acct-pill acct-pill-period" data-period="fy:2024" onclick="setAcctPeriod('fy:2024',this)">FY2024</button><button class="acct-pill acct-pill-period" data-period="fy:2025" onclick="setAcctPeriod('fy:2025',this)">FY2025</button><button class="acct-pill acct-pill-period" data-period="fy:2026" onclick="setAcctPeriod('fy:2026',this)">FY2026</button><span class="acct-pill-sep" aria-hidden="true"></span><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2024-4" onclick="setAcctPeriod('mo:2024-4',this)">Apr '24</button><span class="acct-pill-sep" aria-hidden="true"></span><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-6" onclick="setAcctPeriod('mo:2025-6',this)">Jun '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-7" onclick="setAcctPeriod('mo:2025-7',this)">Jul '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-8" onclick="setAcctPeriod('mo:2025-8',this)">Aug '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-9" onclick="setAcctPeriod('mo:2025-9',this)">Sep '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-10" onclick="setAcctPeriod('mo:2025-10',this)">Oct '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2026-1" onclick="setAcctPeriod('mo:2026-1',this)">Jan '26</button><span class="acct-pill-sep" aria-hidden="true"></span><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2026-3" onclick="setAcctPeriod('mo:2026-3',this)">Mar '26</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2026-4" onclick="setAcctPeriod('mo:2026-4',this)">Apr '26</button></div>
+    </div>
   </div>
 
   <div class="g2">
     <div class="card">
-      <div class="card-title" id="acctTopTitle">Top Accounts &mdash; FY2026 YTD</div>
+      <div class="card-title" id="acctTopTitle">Top Accounts &mdash; All Time</div>
       <div class="card-sub">Top 10 ranked by revenue for the selected period</div>
       <div class="tw">
         <table>
@@ -774,13 +772,13 @@ html,body{overflow-x:hidden}
       </div>
     </div>
     <div class="card">
-      <div class="card-title" id="acctCatTitle">Revenue by Category &mdash; FY2026 YTD</div>
+      <div class="card-title" id="acctCatTitle">Revenue by Category &mdash; All Time</div>
       <div class="card-sub">Top 8 product categories by revenue for the selected period</div>
       <div class="chart-wrap h300"><canvas id="cAccCat"></canvas></div>
     </div>
   </div>
   <div class="card" style="margin-top:18px">
-    <div class="card-title" id="acctAllCatTitle">All Categories &mdash; FY2026 YTD</div>
+    <div class="card-title" id="acctAllCatTitle">All Categories &mdash; All Time</div>
     <div class="tw">
       <table>
         <thead><tr><th>Category</th><th style="text-align:right">Revenue</th></tr></thead>
@@ -789,7 +787,7 @@ html,body{overflow-x:hidden}
     </div>
   </div>
   <div class="card" style="margin-top:18px">
-    <div class="card-title" id="acctAllTitle">All Allocated Accounts &mdash; FY2026 YTD</div>
+    <div class="card-title" id="acctAllTitle">All Allocated Accounts &mdash; All Time</div>
     <div class="card-sub">Every account serviced by Byron Minnie, ranked by revenue for the selected period (highest to lowest)</div>
     <div class="tw" style="max-height:520px;overflow-y:auto">
       <table>
@@ -887,7 +885,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 13 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 13 May 2026 10:31 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 13 May 2026 10:41 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -1151,9 +1149,10 @@ var _acctCatChart = new Chart(document.getElementById('cAccCat'),{
   }
 });
 
-/* ── ACCOUNTS TAB FILTER (FY + Month) ── */
+/* ── ACCOUNTS TAB FILTER (single-axis Period pill row) ── */
 var ACCT_DATA = {"meta": {"KL048": {"name": "Living Inspired Interiors", "arref": "Z1"}, "KC055": {"name": "CKW life Style (PTY) LTD", "arref": "BM1"}, "KA116": {"name": "Allandale Trading CC", "arref": "BM1"}, "KP060": {"name": "Pepper Tree Lane Body Corporat", "arref": "BM1"}, "KB115": {"name": "Build Africa Hardware", "arref": "BM1"}, "KF033": {"name": "241 Fairview", "arref": "Z1"}}, "accounts": {"KA116": {"2026-3": 6339.82}, "KB115": {"2026-3": 34204.09, "2026-4": 17473.16}, "KC055": {"2025-7": 1061.65}, "KF033": {"2025-8": 22318.34, "2025-9": 8505.83, "2025-10": 7364.79, "2026-4": 1700.0}, "KL048": {"2024-4": 1018.44}, "KP060": {"2025-6": 1193.21, "2025-7": 521.44, "2026-1": 310.14, "2026-3": 188.85}}, "categories": {"Accessories": {"2024-4": 1018.44, "2025-7": 239.09, "2025-9": 791.42, "2025-10": 263.06, "2026-1": 310.14, "2026-3": 0.0}, "Enamel": {"2025-9": 333.36, "2026-3": 9989.88, "2026-4": 395.25}, "Floor & Roof Paints": {"2025-7": 935.0, "2025-8": 9534.14, "2025-9": 264.0, "2025-10": 1870.0}, "PVA Paints": {"2025-8": 8338.42, "2025-9": 6704.96, "2025-10": 5231.73, "2026-3": 8738.46, "2026-4": 3321.11}, "Primers": {"2025-7": 409.0, "2025-8": 4445.78, "2026-3": 2527.38, "2026-4": 13756.8}, "QD Enamel": {"2026-3": 5446.0}, "Specialised Coatings": {"2025-6": 1193.21, "2026-3": 4527.28}, "Waterproofing": {"2026-3": 188.85}, "Woodcare": {"2025-9": 412.09, "2026-3": 9314.91}}, "periods": [[2024, 2024, 4], [2025, 2025, 6], [2025, 2025, 7], [2025, 2025, 8], [2025, 2025, 9], [2025, 2025, 10], [2025, 2026, 1], [2026, 2026, 3], [2026, 2026, 4]]};
 var MONTH_FULL_JS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var ACCT_PERIOD = 'all';  // 'all' | 'fy:<year>' | 'mo:<year>-<month>'
 function _acctFmtMoney(v){
   if(v==null||isNaN(v))return '—';
   var av=Math.abs(v);
@@ -1161,33 +1160,34 @@ function _acctFmtMoney(v){
   if(av>=1e3)return 'R'+(v/1e3).toFixed(1)+'K';
   return 'R'+v.toFixed(0);
 }
-function _populateAcctFilters(){
-  var fySel = document.getElementById('acctFy');
-  var moSel = document.getElementById('acctMonth');
-  if(!fySel||!moSel)return;
-  var periods = ACCT_DATA.periods || [];
-  // Distinct FYs, newest first
-  var fys = [];
-  periods.forEach(function(p){ if(fys.indexOf(p[0])<0) fys.push(p[0]); });
-  fys.sort(function(a,b){return b-a;});
-  fySel.innerHTML = fys.map(function(f){return '<option value="'+f+'">FY'+f+'</option>';}).join('');
-  // Months always 1–12 plus All
-  var moHtml = '<option value="all">All months (FY total)</option>';
-  for(var m=1;m<=12;m++){ moHtml += '<option value="'+m+'">'+MONTH_FULL_JS[m-1]+'</option>'; }
-  moSel.innerHTML = moHtml;
-  // Default: most recent FY in periods, All months
-  if(fys.length) fySel.value = fys[0];
-  moSel.value = 'all';
+function setAcctPeriod(periodKey, btn){
+  ACCT_PERIOD = periodKey;
+  document.querySelectorAll('.acct-pill-period').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  renderAccountsTab();
 }
-function _periodKeys(fy, mo){
-  // Return list of "year-month" keys covered by (fy, mo)
+function _periodKeys(){
+  // Return list of "year-month" keys covered by the current ACCT_PERIOD selection
   var keys = [];
-  (ACCT_DATA.periods||[]).forEach(function(p){
-    if(p[0]!==fy) return;
-    if(mo!=='all' && p[2]!==mo) return;
-    keys.push(p[1]+'-'+p[2]);
-  });
+  var periods = ACCT_DATA.periods || [];
+  if(ACCT_PERIOD === 'all'){
+    periods.forEach(function(p){ keys.push(p[1]+'-'+p[2]); });
+  } else if(ACCT_PERIOD.indexOf('fy:')===0){
+    var fy = parseInt(ACCT_PERIOD.slice(3), 10);
+    periods.forEach(function(p){ if(p[0]===fy) keys.push(p[1]+'-'+p[2]); });
+  } else if(ACCT_PERIOD.indexOf('mo:')===0){
+    keys.push(ACCT_PERIOD.slice(3));
+  }
   return keys;
+}
+function _periodLabel(){
+  if(ACCT_PERIOD === 'all') return 'All Time';
+  if(ACCT_PERIOD.indexOf('fy:')===0) return 'FY'+ACCT_PERIOD.slice(3)+' YTD';
+  if(ACCT_PERIOD.indexOf('mo:')===0){
+    var parts = ACCT_PERIOD.slice(3).split('-');
+    return MONTH_FULL_JS[parseInt(parts[1],10)-1] + ' ' + parts[0];
+  }
+  return '';
 }
 function _sumOverKeys(map, keys){
   if(!map) return 0;
@@ -1196,14 +1196,8 @@ function _sumOverKeys(map, keys){
   return s;
 }
 function renderAccountsTab(){
-  var fySel = document.getElementById('acctFy');
-  var moSel = document.getElementById('acctMonth');
-  if(!fySel||!moSel)return;
-  var fy = parseInt(fySel.value, 10);
-  var moRaw = moSel.value;
-  var mo = (moRaw==='all') ? 'all' : parseInt(moRaw, 10);
-  var label = (mo==='all') ? ('FY'+fy+' YTD') : (MONTH_FULL_JS[mo-1]+' FY'+fy);
-  var keys = _periodKeys(fy, mo);
+  var label = _periodLabel();
+  var keys = _periodKeys();
 
   // Section titles
   var tt = document.getElementById('acctTopTitle');     if(tt) tt.innerHTML = 'Top Accounts &mdash; '+label;
@@ -1279,7 +1273,6 @@ function renderAccountsTab(){
     }).join('') || '<tr><td colspan="2" style="text-align:center;color:var(--color-text-tertiary);padding:14px">No category revenue in this period</td></tr>';
   }
 }
-_populateAcctFilters();
 renderAccountsTab();
 
 /* ── NON-STOCK BAR CHART ── */
