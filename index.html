@@ -343,7 +343,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R59.9K</div>
-    <div class="hdr-meta">Week ending 12 May 2026 &middot; Generated 12 May 2026 22:57</div>
+    <div class="hdr-meta">Week ending 13 May 2026 &middot; Generated 13 May 2026 10:31</div>
   </div>
 </div>
 
@@ -732,37 +732,65 @@ html,body{overflow-x:hidden}
 <!-- ── ACCOUNTS TAB ── -->
 <div id="panel-accounts" class="tab-panel">
   <div class="sec-h">Top Accounts &amp; Product Mix</div>
+
+  <!-- Filter bar -->
+  <div class="card" style="margin-bottom:18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+       padding:14px 18px">
+    <div style="font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+         letter-spacing:0.12em;font-size:11px;color:var(--color-text-secondary)">Filter</div>
+    <label style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-body);font-size:11px;
+           color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em">
+      Fiscal Year
+      <select id="acctFy" onchange="renderAccountsTab()" style="padding:6px 10px;border-radius:var(--r-sm);
+              border:1px solid var(--color-border-default);background:var(--color-surface-elevated);
+              color:var(--color-text-primary);font-family:var(--font-body);font-size:13px;min-width:120px"></select>
+    </label>
+    <label style="display:flex;flex-direction:column;gap:4px;font-family:var(--font-body);font-size:11px;
+           color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em">
+      Month
+      <select id="acctMonth" onchange="renderAccountsTab()" style="padding:6px 10px;border-radius:var(--r-sm);
+              border:1px solid var(--color-border-default);background:var(--color-surface-elevated);
+              color:var(--color-text-primary);font-family:var(--font-body);font-size:13px;min-width:140px"></select>
+    </label>
+    <button onclick="document.getElementById('acctFy').value='2026';document.getElementById('acctMonth').value='all';renderAccountsTab();"
+            style="margin-left:auto;padding:8px 14px;border-radius:var(--r-sm);
+            border:1px solid var(--color-border-default);background:var(--color-surface-overlay);
+            color:var(--color-text-primary);font-family:var(--font-body);font-size:12px;cursor:pointer">
+      Reset
+    </button>
+  </div>
+
   <div class="g2">
     <div class="card">
-      <div class="card-title">Top Accounts &mdash; FY2026 YTD</div>
-      <div class="card-sub">Ranked by revenue — BM area codes</div>
+      <div class="card-title" id="acctTopTitle">Top Accounts &mdash; FY2026 YTD</div>
+      <div class="card-sub">Top 10 ranked by revenue for the selected period</div>
       <div class="tw">
         <table>
           <thead><tr>
             <th>Account</th><th>Area</th><th style="text-align:right">Revenue</th>
           </tr></thead>
-          <tbody><tr><td>Build Africa Hardware</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td>Allandale Trading CC</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td>241 Fairview</td><td style="color:var(--color-text-tertiary);font-size:11px">Z1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td>Pepper Tree Lane Body Corporat</td><td style="color:var(--color-text-tertiary);font-size:11px">BM1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189</td></tr></tbody>
+          <tbody id="acctTopBody"></tbody>
         </table>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">Revenue by Category &mdash; FY2026 YTD</div>
-      <div class="card-sub">Top 8 product categories by revenue</div>
+      <div class="card-title" id="acctCatTitle">Revenue by Category &mdash; FY2026 YTD</div>
+      <div class="card-sub">Top 8 product categories by revenue for the selected period</div>
       <div class="chart-wrap h300"><canvas id="cAccCat"></canvas></div>
     </div>
   </div>
   <div class="card" style="margin-top:18px">
-    <div class="card-title">All Categories</div>
+    <div class="card-title" id="acctAllCatTitle">All Categories &mdash; FY2026 YTD</div>
     <div class="tw">
       <table>
         <thead><tr><th>Category</th><th style="text-align:right">Revenue</th></tr></thead>
-        <tbody><tr><td>Primers</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R16.3K</td></tr><tr><td>PVA Paints</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R12.1K</td></tr><tr><td>Enamel</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R10.4K</td></tr><tr><td>Woodcare</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R9.3K</td></tr><tr><td>QD Enamel</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R5.4K</td></tr><tr><td>Specialised Coatings</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R4.5K</td></tr><tr><td>Waterproofing</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189</td></tr><tr><td>Accessories</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R0</td></tr></tbody>
+        <tbody id="acctAllCatBody"></tbody>
       </table>
     </div>
   </div>
   <div class="card" style="margin-top:18px">
-    <div class="card-title">All Allocated Accounts &mdash; FY2025 &amp; FY2026</div>
-    <div class="card-sub">Every account serviced by Byron Minnie, ranked by FY2026 turnover highest to lowest</div>
+    <div class="card-title" id="acctAllTitle">All Allocated Accounts &mdash; FY2026 YTD</div>
+    <div class="card-sub">Every account serviced by Byron Minnie, ranked by revenue for the selected period (highest to lowest)</div>
     <div class="tw" style="max-height:520px;overflow-y:auto">
       <table>
         <thead><tr>
@@ -770,10 +798,9 @@ html,body{overflow-x:hidden}
           <th style="width:72px">Code</th>
           <th>Account Name</th>
           <th style="text-align:center;width:64px">Area</th>
-          <th style="text-align:right;width:110px">FY25</th>
-          <th style="text-align:right;width:110px">FY26</th>
+          <th style="text-align:right;width:140px" id="acctAllRevHead">Revenue</th>
         </tr></thead>
-        <tbody><tr><td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">1</td><td style="font-size:11px;color:var(--color-text-tertiary)">KB115</td><td>Build Africa Hardware</td><td style="text-align:center">BM1</td><td style="text-align:right;color:var(--color-text-secondary)">R0</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R51.7K</td></tr><tr><td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">2</td><td style="font-size:11px;color:var(--color-text-tertiary)">KA116</td><td>Allandale Trading CC</td><td style="text-align:center">BM1</td><td style="text-align:right;color:var(--color-text-secondary)">R0</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R6.3K</td></tr><tr><td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">3</td><td style="font-size:11px;color:var(--color-text-tertiary)">KF033</td><td>241 Fairview</td><td style="text-align:center">Z1</td><td style="text-align:right;color:var(--color-text-secondary)">R38.2K</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R1.7K</td></tr><tr><td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">4</td><td style="font-size:11px;color:var(--color-text-tertiary)">KP060</td><td>Pepper Tree Lane Body Corporat</td><td style="text-align:center">BM1</td><td style="text-align:right;color:var(--color-text-secondary)">R2.0K</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189</td></tr><tr><td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">5</td><td style="font-size:11px;color:var(--color-text-tertiary)">KC055</td><td>CKW life Style (PTY) LTD</td><td style="text-align:center">BM1</td><td style="text-align:right;color:var(--color-text-secondary)">R1.1K</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R0</td></tr></tbody>
+        <tbody id="acctAllBody"></tbody>
       </table>
     </div>
   </div>
@@ -857,10 +884,10 @@ html,body{overflow-x:hidden}
 </div><!-- .page-main -->
 
 <footer class="page-footer">
-  <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 12 May 2026<br>
+  <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 13 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 12 May 2026 22:57 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 13 May 2026 10:31 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -1111,14 +1138,11 @@ new Chart(document.getElementById('cActivity'),{
   }
 });
 
-/* ── CATEGORY CHART ── */
+/* ── CATEGORY CHART (reactive — rebuilt by renderAccountsTab) ── */
 _lblMap.set('cAccCat',{mode:'h-inside',fmt:v=>'R'+v.toFixed(2)+'M',fs:9,color:'#0D0D0B'});
-new Chart(document.getElementById('cAccCat'),{
+var _acctCatChart = new Chart(document.getElementById('cAccCat'),{
   type:'bar',
-  data:{
-    labels:["Primers","PVA Paints","Enamel","Woodcare","QD Enamel","Specialised Coatings","Waterproofing","Accessories"],
-    datasets:[{label:'Revenue (R million)',data:[0.02,0.01,0.01,0.01,0.01,0.01,0.0,0.0],backgroundColor:'#F5C400',borderRadius:5}]
-  },
+  data:{labels:[],datasets:[{label:'Revenue (R million)',data:[],backgroundColor:'#F5C400',borderRadius:5}]},
   options:{
     indexAxis:'y',responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:false},
@@ -1126,6 +1150,137 @@ new Chart(document.getElementById('cAccCat'),{
     scales:{x:{grid:gridLine,ticks:{callback:v=>'R'+v.toFixed(1)+'M'}},y:{grid:{display:false},ticks:{font:{size:11}}}}
   }
 });
+
+/* ── ACCOUNTS TAB FILTER (FY + Month) ── */
+var ACCT_DATA = {"meta": {"KL048": {"name": "Living Inspired Interiors", "arref": "Z1"}, "KC055": {"name": "CKW life Style (PTY) LTD", "arref": "BM1"}, "KA116": {"name": "Allandale Trading CC", "arref": "BM1"}, "KP060": {"name": "Pepper Tree Lane Body Corporat", "arref": "BM1"}, "KB115": {"name": "Build Africa Hardware", "arref": "BM1"}, "KF033": {"name": "241 Fairview", "arref": "Z1"}}, "accounts": {"KA116": {"2026-3": 6339.82}, "KB115": {"2026-3": 34204.09, "2026-4": 17473.16}, "KC055": {"2025-7": 1061.65}, "KF033": {"2025-8": 22318.34, "2025-9": 8505.83, "2025-10": 7364.79, "2026-4": 1700.0}, "KL048": {"2024-4": 1018.44}, "KP060": {"2025-6": 1193.21, "2025-7": 521.44, "2026-1": 310.14, "2026-3": 188.85}}, "categories": {"Accessories": {"2024-4": 1018.44, "2025-7": 239.09, "2025-9": 791.42, "2025-10": 263.06, "2026-1": 310.14, "2026-3": 0.0}, "Enamel": {"2025-9": 333.36, "2026-3": 9989.88, "2026-4": 395.25}, "Floor & Roof Paints": {"2025-7": 935.0, "2025-8": 9534.14, "2025-9": 264.0, "2025-10": 1870.0}, "PVA Paints": {"2025-8": 8338.42, "2025-9": 6704.96, "2025-10": 5231.73, "2026-3": 8738.46, "2026-4": 3321.11}, "Primers": {"2025-7": 409.0, "2025-8": 4445.78, "2026-3": 2527.38, "2026-4": 13756.8}, "QD Enamel": {"2026-3": 5446.0}, "Specialised Coatings": {"2025-6": 1193.21, "2026-3": 4527.28}, "Waterproofing": {"2026-3": 188.85}, "Woodcare": {"2025-9": 412.09, "2026-3": 9314.91}}, "periods": [[2024, 2024, 4], [2025, 2025, 6], [2025, 2025, 7], [2025, 2025, 8], [2025, 2025, 9], [2025, 2025, 10], [2025, 2026, 1], [2026, 2026, 3], [2026, 2026, 4]]};
+var MONTH_FULL_JS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function _acctFmtMoney(v){
+  if(v==null||isNaN(v))return '—';
+  var av=Math.abs(v);
+  if(av>=1e6)return 'R'+(v/1e6).toFixed(2)+'M';
+  if(av>=1e3)return 'R'+(v/1e3).toFixed(1)+'K';
+  return 'R'+v.toFixed(0);
+}
+function _populateAcctFilters(){
+  var fySel = document.getElementById('acctFy');
+  var moSel = document.getElementById('acctMonth');
+  if(!fySel||!moSel)return;
+  var periods = ACCT_DATA.periods || [];
+  // Distinct FYs, newest first
+  var fys = [];
+  periods.forEach(function(p){ if(fys.indexOf(p[0])<0) fys.push(p[0]); });
+  fys.sort(function(a,b){return b-a;});
+  fySel.innerHTML = fys.map(function(f){return '<option value="'+f+'">FY'+f+'</option>';}).join('');
+  // Months always 1–12 plus All
+  var moHtml = '<option value="all">All months (FY total)</option>';
+  for(var m=1;m<=12;m++){ moHtml += '<option value="'+m+'">'+MONTH_FULL_JS[m-1]+'</option>'; }
+  moSel.innerHTML = moHtml;
+  // Default: most recent FY in periods, All months
+  if(fys.length) fySel.value = fys[0];
+  moSel.value = 'all';
+}
+function _periodKeys(fy, mo){
+  // Return list of "year-month" keys covered by (fy, mo)
+  var keys = [];
+  (ACCT_DATA.periods||[]).forEach(function(p){
+    if(p[0]!==fy) return;
+    if(mo!=='all' && p[2]!==mo) return;
+    keys.push(p[1]+'-'+p[2]);
+  });
+  return keys;
+}
+function _sumOverKeys(map, keys){
+  if(!map) return 0;
+  var s = 0;
+  keys.forEach(function(k){ if(map[k]!=null) s += map[k]; });
+  return s;
+}
+function renderAccountsTab(){
+  var fySel = document.getElementById('acctFy');
+  var moSel = document.getElementById('acctMonth');
+  if(!fySel||!moSel)return;
+  var fy = parseInt(fySel.value, 10);
+  var moRaw = moSel.value;
+  var mo = (moRaw==='all') ? 'all' : parseInt(moRaw, 10);
+  var label = (mo==='all') ? ('FY'+fy+' YTD') : (MONTH_FULL_JS[mo-1]+' FY'+fy);
+  var keys = _periodKeys(fy, mo);
+
+  // Section titles
+  var tt = document.getElementById('acctTopTitle');     if(tt) tt.innerHTML = 'Top Accounts &mdash; '+label;
+  var ct = document.getElementById('acctCatTitle');     if(ct) ct.innerHTML = 'Revenue by Category &mdash; '+label;
+  var at = document.getElementById('acctAllCatTitle');  if(at) at.innerHTML = 'All Categories &mdash; '+label;
+  var lt = document.getElementById('acctAllTitle');     if(lt) lt.innerHTML = 'All Allocated Accounts &mdash; '+label;
+  var rh = document.getElementById('acctAllRevHead');   if(rh) rh.textContent = label;
+
+  // ── Top Accounts (top 10) ──
+  var acctRows = [];
+  var meta = ACCT_DATA.meta || {};
+  var accounts = ACCT_DATA.accounts || {};
+  Object.keys(accounts).forEach(function(accno){
+    var v = _sumOverKeys(accounts[accno], keys);
+    if(v <= 0) return;
+    var m = meta[accno] || {name:'Account '+accno, arref:''};
+    acctRows.push({accno:accno, name:m.name, arref:m.arref, rev:v});
+  });
+  acctRows.sort(function(a,b){return b.rev-a.rev;});
+  var topBody = document.getElementById('acctTopBody');
+  if(topBody){
+    topBody.innerHTML = acctRows.slice(0,10).map(function(r){
+      return '<tr><td>'+r.name+'</td>'+
+        '<td style="color:var(--color-text-tertiary);font-size:11px">'+r.arref+'</td>'+
+        '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_acctFmtMoney(r.rev)+'</td></tr>';
+    }).join('') || '<tr><td colspan="3" style="text-align:center;color:var(--color-text-tertiary);padding:14px">No revenue in this period</td></tr>';
+  }
+
+  // ── All Allocated Accounts table — every account with any revenue OR known metadata ──
+  var allRows = acctRows.slice();  // already includes only accounts with rev>0
+  // Include zero-rev accounts at the bottom (so the rep can see the gap)
+  Object.keys(meta).forEach(function(accno){
+    if(!accounts[accno] || _sumOverKeys(accounts[accno], keys) <= 0){
+      var m = meta[accno] || {name:'Account '+accno, arref:''};
+      allRows.push({accno:accno, name:m.name, arref:m.arref, rev:0});
+    }
+  });
+  var allBody = document.getElementById('acctAllBody');
+  if(allBody){
+    allBody.innerHTML = allRows.map(function(r,i){
+      return '<tr>'+
+        '<td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">'+(i+1)+'</td>'+
+        '<td style="font-size:11px;color:var(--color-text-tertiary)">'+r.accno+'</td>'+
+        '<td>'+r.name+'</td>'+
+        '<td style="text-align:center">'+r.arref+'</td>'+
+        '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_acctFmtMoney(r.rev)+'</td>'+
+        '</tr>';
+    }).join('');
+  }
+
+  // ── Category rollups ──
+  var catRows = [];
+  var cats = ACCT_DATA.categories || {};
+  Object.keys(cats).forEach(function(cat){
+    var v = _sumOverKeys(cats[cat], keys);
+    if(v <= 0) return;
+    catRows.push({name:cat, rev:v});
+  });
+  catRows.sort(function(a,b){return b.rev-a.rev;});
+
+  // Chart: top 8 (values in R-millions for matching tick formatter)
+  var top8 = catRows.slice(0,8);
+  _acctCatChart.data.labels = top8.map(function(r){return r.name;});
+  _acctCatChart.data.datasets[0].data = top8.map(function(r){return +(r.rev/1e6).toFixed(3);});
+  _acctCatChart.update();
+
+  // Table: all categories
+  var allCatBody = document.getElementById('acctAllCatBody');
+  if(allCatBody){
+    allCatBody.innerHTML = catRows.map(function(r){
+      return '<tr><td>'+r.name+'</td>'+
+        '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_acctFmtMoney(r.rev)+'</td></tr>';
+    }).join('') || '<tr><td colspan="2" style="text-align:center;color:var(--color-text-tertiary);padding:14px">No category revenue in this period</td></tr>';
+  }
+}
+_populateAcctFilters();
+renderAccountsTab();
 
 /* ── NON-STOCK BAR CHART ── */
 (function(){
