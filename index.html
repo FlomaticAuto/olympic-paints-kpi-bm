@@ -360,7 +360,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R59.9K</div>
-    <div class="hdr-meta">Week ending 13 May 2026 &middot; Generated 13 May 2026 10:41</div>
+    <div class="hdr-meta">Week ending 13 May 2026 &middot; Generated 13 May 2026 10:54</div>
   </div>
 </div>
 
@@ -750,11 +750,15 @@ html,body{overflow-x:hidden}
 <div id="panel-accounts" class="tab-panel">
   <div class="sec-h">Top Accounts &amp; Product Mix</div>
 
-  <!-- Filter bar — pill rows matching Sales Dashboard Credits tab style -->
+  <!-- Filter bar — two independent pill rows that AND together -->
   <div class="acct-filter-block">
     <div class="acct-filter-row">
       <span class="acct-filter-label">Period</span>
-      <div class="acct-pill-row"><button class="acct-pill acct-pill-period active" data-period="all" onclick="setAcctPeriod('all',this)">All Time</button><button class="acct-pill acct-pill-period" data-period="fy:2024" onclick="setAcctPeriod('fy:2024',this)">FY2024</button><button class="acct-pill acct-pill-period" data-period="fy:2025" onclick="setAcctPeriod('fy:2025',this)">FY2025</button><button class="acct-pill acct-pill-period" data-period="fy:2026" onclick="setAcctPeriod('fy:2026',this)">FY2026</button><span class="acct-pill-sep" aria-hidden="true"></span><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2024-4" onclick="setAcctPeriod('mo:2024-4',this)">Apr '24</button><span class="acct-pill-sep" aria-hidden="true"></span><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-6" onclick="setAcctPeriod('mo:2025-6',this)">Jun '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-7" onclick="setAcctPeriod('mo:2025-7',this)">Jul '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-8" onclick="setAcctPeriod('mo:2025-8',this)">Aug '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-9" onclick="setAcctPeriod('mo:2025-9',this)">Sep '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2025-10" onclick="setAcctPeriod('mo:2025-10',this)">Oct '25</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2026-1" onclick="setAcctPeriod('mo:2026-1',this)">Jan '26</button><span class="acct-pill-sep" aria-hidden="true"></span><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2026-3" onclick="setAcctPeriod('mo:2026-3',this)">Mar '26</button><button class="acct-pill acct-pill-period acct-pill-mo" data-period="mo:2026-4" onclick="setAcctPeriod('mo:2026-4',this)">Apr '26</button></div>
+      <div class="acct-pill-row"><button class="acct-pill acct-pill-fy active" data-fy="all" onclick="setAcctFy('all',this)">All Time</button><button class="acct-pill acct-pill-fy" data-fy="2024" onclick="setAcctFy('2024',this)">FY2024</button><button class="acct-pill acct-pill-fy" data-fy="2025" onclick="setAcctFy('2025',this)">FY2025</button><button class="acct-pill acct-pill-fy" data-fy="2026" onclick="setAcctFy('2026',this)">FY2026</button></div>
+    </div>
+    <div class="acct-filter-row">
+      <span class="acct-filter-label">Month</span>
+      <div class="acct-pill-row"><button class="acct-pill acct-pill-month active" data-month="all" onclick="setAcctMonth('all',this)">All</button><button class="acct-pill acct-pill-month" data-month="1" onclick="setAcctMonth('1',this)">Jan</button><button class="acct-pill acct-pill-month" data-month="2" onclick="setAcctMonth('2',this)">Feb</button><button class="acct-pill acct-pill-month" data-month="3" onclick="setAcctMonth('3',this)">Mar</button><button class="acct-pill acct-pill-month" data-month="4" onclick="setAcctMonth('4',this)">Apr</button><button class="acct-pill acct-pill-month" data-month="5" onclick="setAcctMonth('5',this)">May</button><button class="acct-pill acct-pill-month" data-month="6" onclick="setAcctMonth('6',this)">Jun</button><button class="acct-pill acct-pill-month" data-month="7" onclick="setAcctMonth('7',this)">Jul</button><button class="acct-pill acct-pill-month" data-month="8" onclick="setAcctMonth('8',this)">Aug</button><button class="acct-pill acct-pill-month" data-month="9" onclick="setAcctMonth('9',this)">Sep</button><button class="acct-pill acct-pill-month" data-month="10" onclick="setAcctMonth('10',this)">Oct</button><button class="acct-pill acct-pill-month" data-month="11" onclick="setAcctMonth('11',this)">Nov</button><button class="acct-pill acct-pill-month" data-month="12" onclick="setAcctMonth('12',this)">Dec</button></div>
     </div>
   </div>
 
@@ -885,7 +889,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 13 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 13 May 2026 10:41 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 13 May 2026 10:54 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -1149,10 +1153,11 @@ var _acctCatChart = new Chart(document.getElementById('cAccCat'),{
   }
 });
 
-/* ── ACCOUNTS TAB FILTER (single-axis Period pill row) ── */
+/* ── ACCOUNTS TAB FILTER (two-axis: FY + Month, AND together) ── */
 var ACCT_DATA = {"meta": {"KL048": {"name": "Living Inspired Interiors", "arref": "Z1"}, "KC055": {"name": "CKW life Style (PTY) LTD", "arref": "BM1"}, "KA116": {"name": "Allandale Trading CC", "arref": "BM1"}, "KP060": {"name": "Pepper Tree Lane Body Corporat", "arref": "BM1"}, "KB115": {"name": "Build Africa Hardware", "arref": "BM1"}, "KF033": {"name": "241 Fairview", "arref": "Z1"}}, "accounts": {"KA116": {"2026-3": 6339.82}, "KB115": {"2026-3": 34204.09, "2026-4": 17473.16}, "KC055": {"2025-7": 1061.65}, "KF033": {"2025-8": 22318.34, "2025-9": 8505.83, "2025-10": 7364.79, "2026-4": 1700.0}, "KL048": {"2024-4": 1018.44}, "KP060": {"2025-6": 1193.21, "2025-7": 521.44, "2026-1": 310.14, "2026-3": 188.85}}, "categories": {"Accessories": {"2024-4": 1018.44, "2025-7": 239.09, "2025-9": 791.42, "2025-10": 263.06, "2026-1": 310.14, "2026-3": 0.0}, "Enamel": {"2025-9": 333.36, "2026-3": 9989.88, "2026-4": 395.25}, "Floor & Roof Paints": {"2025-7": 935.0, "2025-8": 9534.14, "2025-9": 264.0, "2025-10": 1870.0}, "PVA Paints": {"2025-8": 8338.42, "2025-9": 6704.96, "2025-10": 5231.73, "2026-3": 8738.46, "2026-4": 3321.11}, "Primers": {"2025-7": 409.0, "2025-8": 4445.78, "2026-3": 2527.38, "2026-4": 13756.8}, "QD Enamel": {"2026-3": 5446.0}, "Specialised Coatings": {"2025-6": 1193.21, "2026-3": 4527.28}, "Waterproofing": {"2026-3": 188.85}, "Woodcare": {"2025-9": 412.09, "2026-3": 9314.91}}, "periods": [[2024, 2024, 4], [2025, 2025, 6], [2025, 2025, 7], [2025, 2025, 8], [2025, 2025, 9], [2025, 2025, 10], [2025, 2026, 1], [2026, 2026, 3], [2026, 2026, 4]]};
 var MONTH_FULL_JS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var ACCT_PERIOD = 'all';  // 'all' | 'fy:<year>' | 'mo:<year>-<month>'
+var ACCT_FY = 'all';     // 'all' | '<fyYear>'
+var ACCT_MONTH = 'all';  // 'all' | '1'..'12'
 function _acctFmtMoney(v){
   if(v==null||isNaN(v))return '—';
   var av=Math.abs(v);
@@ -1160,34 +1165,36 @@ function _acctFmtMoney(v){
   if(av>=1e3)return 'R'+(v/1e3).toFixed(1)+'K';
   return 'R'+v.toFixed(0);
 }
-function setAcctPeriod(periodKey, btn){
-  ACCT_PERIOD = periodKey;
-  document.querySelectorAll('.acct-pill-period').forEach(function(b){ b.classList.remove('active'); });
+function setAcctFy(val, btn){
+  ACCT_FY = String(val);
+  document.querySelectorAll('.acct-pill-fy').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  renderAccountsTab();
+}
+function setAcctMonth(val, btn){
+  ACCT_MONTH = String(val);
+  document.querySelectorAll('.acct-pill-month').forEach(function(b){ b.classList.remove('active'); });
   if(btn) btn.classList.add('active');
   renderAccountsTab();
 }
 function _periodKeys(){
-  // Return list of "year-month" keys covered by the current ACCT_PERIOD selection
+  // Return "year-month" keys whose period matches BOTH the FY and Month filters.
   var keys = [];
-  var periods = ACCT_DATA.periods || [];
-  if(ACCT_PERIOD === 'all'){
-    periods.forEach(function(p){ keys.push(p[1]+'-'+p[2]); });
-  } else if(ACCT_PERIOD.indexOf('fy:')===0){
-    var fy = parseInt(ACCT_PERIOD.slice(3), 10);
-    periods.forEach(function(p){ if(p[0]===fy) keys.push(p[1]+'-'+p[2]); });
-  } else if(ACCT_PERIOD.indexOf('mo:')===0){
-    keys.push(ACCT_PERIOD.slice(3));
-  }
+  var fy = ACCT_FY;
+  var mo = ACCT_MONTH;
+  (ACCT_DATA.periods || []).forEach(function(p){
+    if(fy !== 'all' && p[0] !== parseInt(fy, 10)) return;
+    if(mo !== 'all' && p[2] !== parseInt(mo, 10)) return;
+    keys.push(p[1]+'-'+p[2]);
+  });
   return keys;
 }
 function _periodLabel(){
-  if(ACCT_PERIOD === 'all') return 'All Time';
-  if(ACCT_PERIOD.indexOf('fy:')===0) return 'FY'+ACCT_PERIOD.slice(3)+' YTD';
-  if(ACCT_PERIOD.indexOf('mo:')===0){
-    var parts = ACCT_PERIOD.slice(3).split('-');
-    return MONTH_FULL_JS[parseInt(parts[1],10)-1] + ' ' + parts[0];
-  }
-  return '';
+  var moTxt = (ACCT_MONTH === 'all') ? '' : MONTH_FULL_JS[parseInt(ACCT_MONTH,10)-1];
+  var fyTxt = (ACCT_FY === 'all') ? 'All Time' : ('FY'+ACCT_FY);
+  if(moTxt && ACCT_FY === 'all') return moTxt + ' (all years)';
+  if(moTxt) return moTxt + ' ' + fyTxt;
+  return fyTxt;
 }
 function _sumOverKeys(map, keys){
   if(!map) return 0;
