@@ -369,7 +369,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R60.8K</div>
-    <div class="hdr-meta">Week ending 14 May 2026 &middot; Generated 14 May 2026 14:12</div>
+    <div class="hdr-meta">Week ending 14 May 2026 &middot; Generated 14 May 2026 14:28</div>
   </div>
 </div>
 
@@ -383,6 +383,7 @@ html,body{overflow-x:hidden}
   <button class="tab-btn"        data-tab="debtors"   onclick="showTab('debtors')">Debtors</button>
   <button class="tab-btn"        data-tab="accounts"  onclick="showTab('accounts')">Accounts</button>
   <button class="tab-btn"        data-tab="nonstock"  onclick="showTab('nonstock')">Non Stock</button>
+  <button class="tab-btn"        data-tab="prodev"    onclick="showTab('prodev')">Product Development</button>
 
 
 </div>
@@ -891,6 +892,125 @@ html,body{overflow-x:hidden}
   </div>
 </div>
 
+<!-- ── PRODUCT DEVELOPMENT TAB ── -->
+<div id="panel-prodev" class="tab-panel">
+  <div class="sec-h">RAP KPI &mdash; Product Development &middot; Q1 2026 (Jan-Mar)</div>
+
+  <div style="background:var(--color-info-bg);border:1px solid var(--color-info-bd);border-radius:var(--r-md);
+       padding:10px 16px;margin-bottom:18px;font-family:var(--font-body);font-size:12px;color:var(--color-info-fg);line-height:1.6">
+    <strong>What this measures.</strong> Every (store &times; SKU) pair you delivered in Q1 2026
+    (&ge; R500 net of VAT) where that store had not bought that SKU in the prior 12 months.
+    Placing genuinely new products into existing stores is the core product-development behaviour the RAP rewards.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">New Product Placements</div>
+      <div class="kpi-value">25</div>
+      <div class="kpi-delta neu">store &times; SKU first-time pairs</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Stores Reached</div>
+      <div class="kpi-value">2</div>
+      <div class="kpi-delta neu">of 6 active in Q1</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Distinct SKUs Placed</div>
+      <div class="kpi-value">24</div>
+      <div class="kpi-delta neu">unique product codes</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Q1 Net Revenue from New</div>
+      <div class="kpi-value">R 29,034</div>
+      <div class="kpi-delta neu">net of VAT</div>
+    </div>
+  </div>
+
+  <div class="sec-h">How well was this done?</div>
+
+  <div class="card" style="padding:20px 22px;margin-bottom:18px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary)">Overall Grade</div>
+      <div class="kpi-value warn" style="font-size:32px">Good</div>
+    </div>
+    <div class="g2" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:14px 16px;background:var(--color-surface-sunken);border-radius:var(--r-md);border-left:3px solid var(--color-danger-bd)">
+        <div class="kpi-label">Store Coverage %</div>
+        <div class="kpi-value dn">33.3%</div>
+        <div class="kpi-delta neu">Poor &middot; share of your Q1-active stores that got a new product</div>
+      </div>
+      <div style="padding:14px 16px;background:var(--color-surface-sunken);border-radius:var(--r-md);border-left:3px solid var(--color-success-bd)">
+        <div class="kpi-label">Revenue % from new placements</div>
+        <div class="kpi-value up">51.3%</div>
+        <div class="kpi-delta neu">Excellent &middot; of your total Q1 net revenue (R57K)</div>
+      </div>
+      <div style="padding:14px 16px;background:var(--color-surface-sunken);border-radius:var(--r-md);border-left:3px solid var(--color-warning-bd)">
+        <div class="kpi-label">Category Breadth</div>
+        <div class="kpi-value warn">6</div>
+        <div class="kpi-delta neu">Good &middot; distinct L1 categories with new placements</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:11.5px;color:var(--color-text-tertiary);line-height:1.5">
+      Thresholds: Coverage &ge; 60% Excellent / &ge; 35% Good
+      &middot; Revenue &ge; 8% Excellent / &ge; 3% Good
+      &middot; Categories &ge; 8 Excellent / &ge; 5 Good. Overall = majority of the three.
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Categories Driven</div>
+      <div class="card-sub">Where your range development landed this quarter</div>
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>Category</th>
+            <th style="text-align:right">Placements</th>
+            <th style="text-align:right">Stores</th>
+            <th style="text-align:right">Q1 Net</th>
+            <th style="width:140px"></th>
+          </tr></thead>
+          <tbody><tr><td>Enamel</td><td style="text-align:right">7</td><td style="text-align:right">1</td><td style="text-align:right">R 7,857</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:100.0%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>PVA Paints</td><td style="text-align:right">6</td><td style="text-align:right">2</td><td style="text-align:right">R 6,506</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:85.7%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Woodcare</td><td style="text-align:right">5</td><td style="text-align:right">1</td><td style="text-align:right">R 6,162</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:71.4%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>QD Enamel</td><td style="text-align:right">4</td><td style="text-align:right">2</td><td style="text-align:right">R 4,200</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:57.1%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Specialised Coatings</td><td style="text-align:right">2</td><td style="text-align:right">1</td><td style="text-align:right">R 3,674</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:28.6%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Primers</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right">R 636</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:14.3%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Top New Products Placed</div>
+      <div class="card-sub">Ranked by Q1 net revenue contribution</div>
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>SKU</th>
+            <th>Product</th>
+            <th style="text-align:right">Stores</th>
+            <th style="text-align:right">Q1 Net</th>
+          </tr></thead>
+          <tbody><tr><td style="font-size:11px;color:var(--color-text-tertiary)">139401</td><td>20L DECOR WHITE PVA</td><td style="text-align:right">2</td><td style="text-align:right">R 2,726</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">RMYELLOW5L</td><td>5L ROAD MARKING YELLOW</td><td style="text-align:right">1</td><td style="text-align:right">R 1,932</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">RMWHITE5L</td><td>5L ROAD MARKING WHITE</td><td style="text-align:right">1</td><td style="text-align:right">R 1,743</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">QD9891</td><td>5L Q.D. SILVER</td><td style="text-align:right">1</td><td style="text-align:right">R 1,400</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">419882</td><td>5L LIGHT OAK VARNISH</td><td style="text-align:right">1</td><td style="text-align:right">R 1,269</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">419885</td><td>5L TEAK VARNISH</td><td style="text-align:right">1</td><td style="text-align:right">R 1,269</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">419883</td><td>5L DARK OAK VARNISH</td><td style="text-align:right">1</td><td style="text-align:right">R 1,269</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">419884</td><td>5L MAHOGONY VARNISH</td><td style="text-align:right">1</td><td style="text-align:right">R 1,269</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">299831</td><td>5L HIGH GLOSS (MQ) G BROWN</td><td style="text-align:right">1</td><td style="text-align:right">R 1,168</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">299856</td><td>5L HIGH GLOSS (MQ) BURGANDY</td><td style="text-align:right">1</td><td style="text-align:right">R 1,168</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">Top Stores Reached</div>
+    <div class="card-sub">Stores that took the broadest range of new products this quarter</div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>Account</th>
+          <th>Store</th>
+          <th style="text-align:right">New SKUs</th>
+          <th style="text-align:right">Placements</th>
+          <th style="text-align:right">Q1 Net</th>
+        </tr></thead>
+        <tbody><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KB115</td><td>Build Africa Hardware</td><td style="text-align:right">22</td><td style="text-align:right">22</td><td style="text-align:right">R 26,930</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KA116</td><td>Allandale Trading CC</td><td style="text-align:right">3</td><td style="text-align:right">3</td><td style="text-align:right">R 2,104</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 
 </div><!-- .page-main -->
 
@@ -898,7 +1018,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 14 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 14 May 2026 14:12 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 14 May 2026 14:28 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -1126,8 +1246,10 @@ new Chart(document.getElementById('cSalesRev'),{
         var nL=DL[iso]||0;
         var fill=leadFill(n,nL);
         var fg=hmFg(n,fill);var cf=hmCntFg(n,fill);
-        // Cell background = visit ramp (existing). Lead activity shown as a
-        // bottom-up green BAR whose height = lead share of total activity.
+        // Display the visit count primarily; when no check-ins but a lead-tagged
+        // meeting exists, fall back to the lead count so the day still shows a
+        // number rather than appearing empty.
+        var displayN=n||nL;
         var inline=n===0?'':'background:'+hmBg(n);
         var isEmpty=(n===0 && nL===0);
         var stripHtml=fill>0?('<div class="hm-lstrip" style="height:'+fill+'%"></div>'):'';
@@ -1135,7 +1257,7 @@ new Chart(document.getElementById('cSalesRev'),{
         html+='<div class="hm-cell'+(isEmpty?' empty':'')+'" style="'+inline+'" title="'+iso+': '+n+' visit'+(n!==1?'s':'')+tipExtra+'">'
              +stripHtml
              +'<div class="hm-date" style="color:'+fg+'">'+DNAMES[o.dow]+' '+pad2(o.d)+'</div>'
-             +'<div class="hm-count" style="color:'+cf+'">'+(n||'')+'</div>'
+             +'<div class="hm-count" style="color:'+cf+'">'+(displayN||'')+'</div>'
              +'</div>';
       });
       html+='</div>';
